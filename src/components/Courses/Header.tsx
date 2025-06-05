@@ -36,12 +36,12 @@ const Header = () => {
                 {opened && (
                   <div
                     onClick={toggle}
-                    className=""
+                    className="fixed inset-0 bg-black bg-opacity-50 z-40"
                     />
                   )}
                 </div>
                 <div className="">
-                    <a href='/' className='bg-green-500  '><img  width="48px" src="../../assets/eduHub.png" alt="EduHub"></img></a>
+                    <a href='/' className='bg-green-500  '><img  width="48px" src="/assets/eduHub.png" alt="EduHub"></img></a>
                 </div>
                 <div className=" hidden sm:block sm:w-70 md:w-100 h-10 flex items-center justify-between ">
                     <Input type="text" className="w-full h-full bg-transparent outline-none text-gray-400 placeholder-gray-400 px-2" placeholder="Search your Course..." rightSection={<IconSearch onClick={()=>console.log("search Clicked")}  className="mr-3 cursor-pointer"/>}>
