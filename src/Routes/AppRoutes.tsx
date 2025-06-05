@@ -5,6 +5,10 @@ import SignUp from '../components/Login/SignUp';
 import Login from '../components/Login/Login';
 import CoursePage from '../page/CoursePage';
 import Testing from '../Layout/Testing';
+import StudentDashboard from '../page/StudentDashboard';
+import MyCourses from '../components/Student/MyCourses';
+import Library from '../components/Student/Library';
+import Store from '../components/Student/Store';
 
 
 const AppRoutes = () => {
@@ -16,6 +20,14 @@ const AppRoutes = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/courses' element={<CoursePage />}/>
             <Route path='/test' element={<Testing />} />
+            <Route path='/student' element={<StudentDashboard />} >
+                <Route path='study' element={<MyCourses />} />
+                <Route path='courses'element={<MyCourses />} />
+                <Route path='library' element={<Library/>} />
+                <Route path='store' element={<Store/>} />
+
+            </Route>
+
         </Routes>
     </BrowserRouter>
   )
