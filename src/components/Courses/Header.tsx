@@ -1,5 +1,5 @@
 import { Burger, Button, Input, Popover, TextInput } from "@mantine/core"
-import logo1 from "../../assets/eduHub.png";
+import logo from "../../assets/eduHub.png";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { IconSearch } from "@tabler/icons-react";
@@ -41,7 +41,7 @@ const Header = () => {
                   )}
                 </div>
                 <div className="">
-                    <a href='/' className='bg-green-500  '><img  width="48px" src={logo1}></img></a>
+                    <a href='/' className='bg-green-500  '><img  width="48px" src={logo}></img></a>
                 </div>
                 <div className=" hidden sm:block sm:w-70 md:w-100 h-10 flex items-center justify-between ">
                     <Input type="text" className="w-full h-full bg-transparent outline-none text-gray-400 placeholder-gray-400 px-2" placeholder="Search your Course..." rightSection={<IconSearch onClick={()=>console.log("search Clicked")}  className="mr-3 cursor-pointer"/>}>
