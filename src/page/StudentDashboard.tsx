@@ -10,7 +10,9 @@ const StudentDashboard = () => {
         <SideBar />
         <div className='flex flex-col w-full'>
         <Header />
+        <div className='bg-gray-100 h-full'>
         <Outlet />
+        </div>
         </div>
 
         <FooterSite />

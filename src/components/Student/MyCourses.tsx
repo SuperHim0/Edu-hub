@@ -35,8 +35,8 @@ const MyCourses = () => {
         },
     ]
   return (
-    <div className="mt-10 ml-20 mr-20 flex flex-col">
-        <div className="shadow-md w-full ">
+    <div className=" ml-90 mr-20  mb-5 h-screen flex flex-col ">
+        <div className="shadow-sm w-full bg-white mt-30">
             <div className="m-6 flex flex-col gap-3 overflow-hidden">
                 <h1 className="text-2xl font-semibold">Quick Access</h1>
                 <div className="grid grid-cols-3 gap-8">
