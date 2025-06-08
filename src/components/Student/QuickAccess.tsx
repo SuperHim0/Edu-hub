@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom"
+import { Divider } from "@mantine/core";
+import { NavLink, Outlet, useLocation } from "react-router-dom"
 
 
 const MyCourses = () => {
@@ -34,16 +35,24 @@ const MyCourses = () => {
             description:"View List of Your saved Courses"
         },
     ]
+
+    const location  = useLocation();
+    console.log(location);
+    
   return (
-    <div className=" ml-90 mr-20  mb-5 h-screen flex flex-col ">
-        <div className="shadow-sm w-full bg-white mt-30">
-            <div className="m-6 flex flex-col gap-3 overflow-hidden">
+    <div className="">
+        { location.pathname === "/student/study" &&
+        <div className="ml-90 mr-20  mb-5 h-screen flex flex-col "> 
+
+    
+            <div className="shadow-sm w-full bg-white mt-30">
+            <div className="m-6 flex flex-col gap-3 overflow-hidden ">
                 <h1 className="text-2xl font-semibold">Quick Access</h1>
                 <div className="grid grid-cols-3 gap-8">
                     {
                         quickLinks.map((quick)=>{
                             return <NavLink key={quick.url} to={quick.url} className="
-                            border border-gray-200 rounded-lg flex flex-col m-2">
+                            border border-gray-200 rounded-lg flex flex-col m-2 overflow-hidden">
                                 <div className="m-4 flex flex-col gap-2">
                                 <img src={quick.images} width={40} height={40}/>
                                 <span className="text-lg font-semibold" >{quick.name}</span>
@@ -59,8 +68,15 @@ const MyCourses = () => {
         </div>
         <div className="mt-10">
             <h1 className="text-4xl font-semibold text-gray-500">Padhlo chahe kahi se Manzil milegi yahi se!</h1>
-
         </div>
+        </div>
+         } 
+         { 
+            <div className="flex flex-col justify-center items-center">
+             <Outlet />
+            </div>
+         }
+       
     </div>
   )
 }

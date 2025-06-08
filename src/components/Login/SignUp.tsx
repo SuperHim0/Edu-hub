@@ -1,5 +1,8 @@
 import { Button, Divider, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from '@mantine/form';
+import { registerUser } from "../../Services/UserServices";
+import { useNavigate } from "react-router-dom";
+import { errorNotification, successNotification } from "../../utility/NotificationUtil";
 // import {GoogleButton} from 'https://img.icons8.com/clouds/100/google-logo.png';
 // import {TwitterButton} from 'https://img.icons8.com/clouds/100/github.png';
 
@@ -11,14 +14,44 @@ const SignUp = () => {
  const form = useForm({
     mode: 'uncontrolled',
     initialValues: {
+      name:'',
       email: '',
-      
+      phone: '',
+      password: '',
+      // confirmPassword: '',
     },
 
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+      name: (value) => (!value)? 'Name is required' : null,
+      phone:(value) => (!value)? 'phone is required' : null,
+      password: (value) => {
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{6,}$/;
+      
+        if (!value) return 'Password is required';
+        if (!regex.test(value)) {
+          return 'Password must contain at least 1 uppercase, 1 lowercase, 1 digit, 1 special character, and be at least 6 characters long';
+        }
+        return null;
+      },
+      // confirmPassword: (value, values) => (value !== values.password ? 'Passwords do not match' : null),
     },
   });
+  const navigate = useNavigate();
+  const handleSubmit = (values: typeof form.values) => {
+    console.log(values);
+    // Handle form submission here
+    registerUser(values).then((data) => {
+      navigate('/login')
+      successNotification(data.message);
+    }
+  ).catch((error) => {
+      errorNotification(error.response.data.errorMessage);
+    
+    })
+    
+    console.log(values);
+  };
 
   return (
     <div className='flex flex-col w-full h-screen justify-center items-center bg-[var(--color-dark)]'>
@@ -27,31 +60,31 @@ const SignUp = () => {
                 <h1>logo</h1>
                 <h2 className='text-white text-2xl font-bold text-center'>Welcome To SignUp</h2> 
                 <p className='text-gray-400 text-sm text-center'>Allready have an account?<a href='/login'>Login</a></p>
-                <form onSubmit={form.onSubmit(console.log)} className="w-full">
+                <form onSubmit={form.onSubmit(handleSubmit)} className="w-full">
                   <TextInput
                     
                     placeholder="👤 Name"
-                    key={form.key('name')}
+                    
                     {...form.getInputProps('name')}
                   />
                   <TextInput
                     mt="sm"
                     placeholder="📧 Email"
-                    key={form.key('email')}
-                    {...form.getInputProps('email address')}
+                   
+                    {...form.getInputProps('email')}
                   />
                   
                   <TextInput
                     mt="sm"
                     placeholder="📞 Phone Number"
-                    key={form.key('email')}
-                    {...form.getInputProps('email address')}
+                    
+                    {...form.getInputProps('phone')}
                   />
                   <PasswordInput
                     mt="sm"
                     placeholder="🔒 Password"
-                    key={form.key('email')}
-                    {...form.getInputProps('email address')}
+                    
+                    {...form.getInputProps('password')}
                    />
                   <Button type="submit" mt="sm" w='100%' className="">
                     Sign Up

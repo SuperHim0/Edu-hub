@@ -40,7 +40,7 @@ const SideBar = () => {
     ]
 
   return (
-    <div className="w-[250px] h-screen bg-white border border-[var(--color-divider)] overflow-hidden fixed z-50">
+    <div className="w-[250px] hidden md:block h-screen bg-white border border-[var(--color-divider)] overflow-hidden fixed z-50">
         <a className="flex items-center justify-center ">
             <img src={logo} width={70} />
             <h1 className="text-2xl font-bold">EduHub</h1>
