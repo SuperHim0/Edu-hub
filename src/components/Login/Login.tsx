@@ -6,7 +6,6 @@ import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { setJwt } from "../../Slice/JwtSlice";
 import { setUser } from "../../Slice/UserSlice";
-import { jwtDecode } from "jwt-decode";
 // import {GoogleButton} from 'https://img.icons8.com/clouds/100/google-logo.png';
 // import {TwitterButton} from 'https://img.icons8.com/clouds/100/github.png';
 
@@ -23,7 +22,6 @@ const Login = () => {
     initialValues: {
       email: '',
       password:'',
-      
     },
 
     validate: {

@@ -23,10 +23,10 @@ const Header = () => {
 
         {/* Menu Items */}
         <ul className="flex flex-col items-start p-6 pt-12 space-y-4">
-          <li><a href='/' className={`${active==='/'?'text-green-400':'text-black'} text-lg`}>Home</a></li>
-          <li><a href='/courses' className={`${active==='/course'?'text-green-400':'text-black'} text-lg`}>Courses</a></li>
-          <li><a href='/about' className={`${active==='/about'?'text-green-400':'text-black'} text-lg`}>About Us</a></li>
-          <li><a href='/contact' className={`${active==='/contact'?'text-green-400':'text-black'} text-lg`}>Contact Us</a></li>
+          <li><a href='/' className={`${active==='/'?'text-green-400':'text-black'}hover:text-green-400  text-lg`}>Home</a></li>
+          <li><a href='/courses' className={`${active==='/course'?'text-green-400':'text-black'} hover:text-green-400 text-lg`}>Courses</a></li>
+          <li><a href='/about' className={`${active==='/about'?'text-green-400':'text-black'} hover:text-green-400 text-lg`}>About Us</a></li>
+          <li><a href='/contact' className={`${active==='/contact'?'text-green-400':'text-black'} hover:text-green-400 text-lg`}>Contact Us</a></li>
         </ul>
       </div>
 
@@ -44,10 +44,10 @@ const Header = () => {
         </div>
         <div className='flex items-center '>
             <ul className="hidden md:flex gap-4">
-                <li className={`inline-block mr-4 ${active==='/'?'text-green-400':'text-black'}`}><a href='/'>Home</a></li>
-                <li className={`inline-block mr-4 ${active==='/course'?'text-green-400':'text-black'}`}><a href='/courses'>Courses</a></li>
-                <li className={`inline-block mr-4 ${active==='/about'?'text-green-400':'text-black'}`}><a href='/about'>About Us</a></li>
-                <li className={`inline-block mr-4 ${active==='/contact'?'text-green-400':'text-black'}`}><a href='/contact'>Contact Us</a></li>
+                <li className={`inline-block mr-4 ${active==='/'?'text-green-400':'text-black'} `}><a href='/' className="hover:text-green-400" >Home</a></li>
+                <li className={`inline-block mr-4 ${active==='/course'?'text-green-400':'text-black'}`}><a href='/courses' className="hover:text-green-400">Courses</a></li>
+                <li className={`inline-block mr-4 ${active==='/about'?'text-green-400':'text-black'}`}><a href='/about' className="hover:text-green-400" >About Us</a></li>
+                <li className={`inline-block mr-4 ${active==='/contact'?'text-green-400':'text-black'}`}><a href='/contact' className="hover:text-green-400" >Contact Us</a></li>
             </ul>
             <Divider orientation="vertical" size="md"  className="hidden md:block"/>
             <div className="flex items-center gap-2">

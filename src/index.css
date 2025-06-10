@@ -6,3 +6,6 @@
   --color-comment: #2B2A3C;
   --color-divider: #E0E0E0;
 }
+
+@import "swiper/css";
+@import "swiper/css/navigation";

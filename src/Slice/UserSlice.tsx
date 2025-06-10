@@ -39,6 +39,7 @@ const userSlice = createSlice({
             },
             removeUser: (state)=>{
                 // localStorage.removeItemItem('token',action.payload);
+                 Cookies.remove('userData',{path:'/'});
                 state = {};
                 return state;
             }

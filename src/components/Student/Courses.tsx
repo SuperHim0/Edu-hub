@@ -72,11 +72,11 @@ const Courses = () => {
 
   return (
     <div className=''>
-        <div className='ml-90 mr-20 mt-30 mb-5 flex flex-col gap-4 overflow-hidden'>
+        <div className='m-4 md:ml-70 xl:ml-90 xl:mr-20 mt-30 mb-5 flex flex-col gap-4 overflow-hidden'>
                 <div className=" w-full">
                     <TextInput onChange={(e)=>setSearch(e.currentTarget.value)} value={search} placeholder="Search for courses.." leftSection={<IconSearch />}/>
                 </div>
-           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         {filteredCourses.map((course:any) => (
           <div key={course.courseId} className="border rounded p-4 shadow flex flex-col overflow-hidden gap-4">
             <div>
@@ -101,7 +101,7 @@ const Courses = () => {
         )) 
         }
       </div>
-                <Modal 
+                <Modal key={courseId}
                 className=""
                 opened={opened} onClose={close} title="Course Details" >
                     {/* Modal content */}

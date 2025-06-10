@@ -19,6 +19,7 @@ import { History } from '../components/Study/History';
 import Courses from '../components/Student/Courses';
 import {MyCourses} from '../components/Study/MyCourses';
 import OrderSummary from '../components/Student/OrderSummary';
+import VideoPlayer from '../components/Study/VideoPlayer';
 
 
 const AppRoutes = () => {
@@ -38,6 +39,7 @@ const AppRoutes = () => {
                   <Route path='mydashboard' element={<Dahsboard />} />
                   <Route path='mydoubts' element={<Doubt />} />
                   <Route path='myhistory' element={<History />} />
+                  <Route path='watch-video' element={<VideoPlayer />} />
                 </Route>
                 <Route path='order-summary'element={<OrderSummary/>} />
                 <Route path='courses'element={<Courses />} />

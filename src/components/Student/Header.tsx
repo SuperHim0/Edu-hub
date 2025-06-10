@@ -1,12 +1,45 @@
-import { Avatar, Menu } from "@mantine/core"
+import { Avatar, Burger, Menu } from "@mantine/core"
 import { IconSignLeft, IconUser } from "@tabler/icons-react"
-
+import Cookies from 'js-cookie';
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setJwt } from "../../Slice/JwtSlice";
+import { setUser } from "../../Slice/UserSlice";
 
 
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+  const handleLogout = () =>{
+  Cookies.remove('token', { path: '/' });
+  Cookies.remove('userData', { path: '/' });
+  Cookies.remove('role', { path: '/' });
+
+  // Clear Redux or local state
+  dispatch(setJwt(null));
+  dispatch(setUser(null));
+
+  // Optional: redirect to login
+  navigate('/login');
+    
+  }
+  // const handleProfile = () =>{
+      
+  // }
+
+  const openSideBar =() =>{
+
+  }
+
+
   return (
     <div className='w-full h-[72px] border border-[var(--color-divider)] bg-white fixed z-40'>
-        <div className="m-5 flex items-center gap-4 justify-end mr-12">
+        <div className="m-5 flex items-center gap-4 justify-between md:justify-end mr-12">
+            <Burger className="md:hidden" onClick={openSideBar}  />
+            
+            <div className="flex items-center justify-between gap-4">
+
             <span className="text-[var(--color-Dark)] text-lg font-semibold" >Hi, Himanshu</span>
             <Menu shadow="md" width={200}>
               <Menu.Target>
@@ -16,11 +49,14 @@ const Header = () => {
                     <Menu.Item leftSection={<IconUser size={14} />}>
                       Profile
                     </Menu.Item>
-                    <Menu.Item leftSection={<IconSignLeft size={14} />}>
-                      Log out
+                    <Menu.Item leftSection={<IconSignLeft size={14} />} onClick={()=>handleLogout}>
+                      <span className="" onClick={handleLogout}>
+                        Log out
+                        </span>
                     </Menu.Item>
               </Menu.Dropdown>
             </Menu>
+            </div>
         </div>
     </div>
   )

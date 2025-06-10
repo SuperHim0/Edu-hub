@@ -1,4 +1,4 @@
-import { Divider } from "@mantine/core";
+
 import { NavLink, Outlet, useLocation } from "react-router-dom"
 
 
@@ -42,13 +42,13 @@ const MyCourses = () => {
   return (
     <div className="">
         { location.pathname === "/student/study" &&
-        <div className="ml-90 mr-20  mb-5 h-screen flex flex-col "> 
+        <div className="m-4 md:ml-70 xl:ml-90 xl:mr-20   mb-5 h-screen flex flex-col "> 
 
     
             <div className="shadow-sm w-full bg-white mt-30">
             <div className="m-6 flex flex-col gap-3 overflow-hidden ">
                 <h1 className="text-2xl font-semibold">Quick Access</h1>
-                <div className="grid grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                     {
                         quickLinks.map((quick)=>{
                             return <NavLink key={quick.url} to={quick.url} className="

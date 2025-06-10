@@ -21,8 +21,8 @@ const Main = () => {
             <span className="text-xl">500+ Happy Students</span>
         </div>
         <div className="flex items-center gap-4"> 
-            <button className="bg-green-500 text-white px-4 py-2 rounded flex gap-2 cursor-pointer"><IconHome stroke={2.5} /> Get Started</button>
-            <button className="bg-black text-white px-4 py-2 rounded flex gap-2 cursor-pointer"><IconPlayerPlayFilled stroke={2.5} /> <span className="font-semibold"> Find Courses</span></button>
+            <button className="bg-green-500 hover:bg-green-400 text-white px-4 py-2 rounded flex gap-2 cursor-pointer"><IconHome stroke={2.5} /> Get Started</button>
+            <button className="bg-black hover:bg-gray-700 text-white px-4 py-2 rounded flex gap-2 cursor-pointer"><IconPlayerPlayFilled stroke={2.5} /> <span className="font-semibold"> Find Courses</span></button>
         </div>
         <div className="transition-all duration-500 ease-in-out 
                 mt-8 border-8 border-black rounded-2xl 

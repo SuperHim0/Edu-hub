@@ -1,5 +1,5 @@
-import { Accordion, Autocomplete, Container, SegmentedControl, Title } from "@mantine/core"
-import { IconSearch } from "@tabler/icons-react";
+import { Accordion,  Container, SegmentedControl, Title } from "@mantine/core"
+
 import { useState } from "react";
 
 
@@ -46,7 +46,7 @@ const ContactUs = () => {
 const [value, setValue] = useState('Help Center');
 
   return (
-    <div className='flex flex-col gap-12 items-center justify-center ml-90 mr-20 mt-30 mb-5'>
+    <div className='flex flex-col gap-12 items-center justify-center md:ml-90 md:mr-20 mt-30 mb-5'>
         <div className="flex items-center justify-between rounded-md bg-white border-md w-full h-[80px]"> 
           <SegmentedControl 
             className="ml-4"
@@ -54,7 +54,7 @@ const [value, setValue] = useState('Help Center');
             onChange={setValue}
             transitionDuration={500}
             h={60}
-            size="lg"
+            size="md"
             style={{
               flex:"row",
               justifyContent:"center",
@@ -69,7 +69,7 @@ const [value, setValue] = useState('Help Center');
             ]} 
           
           />
-          <Autocomplete 
+          {/* <Autocomplete 
           className="mr-4"
             
             
@@ -77,7 +77,7 @@ const [value, setValue] = useState('Help Center');
             leftSection={<IconSearch size={16} stroke={1.5} />}
             data={['what is your number']}
             visibleFrom="xs"
-          ></Autocomplete>
+          ></Autocomplete> */}
 
         </div>
         { value ==='Help Center' && 
