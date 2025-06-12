@@ -3,8 +3,8 @@ import { IconSignLeft, IconUser } from "@tabler/icons-react"
 import Cookies from 'js-cookie';
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setJwt } from "../../Slice/JwtSlice";
-import { setUser } from "../../Slice/UserSlice";
+import { removeJwt } from "../../Slice/JwtSlice";
+import { removeUser } from "../../Slice/UserSlice";
 
 
 const Header = () => {
@@ -16,12 +16,16 @@ const Header = () => {
   Cookies.remove('userData', { path: '/' });
   Cookies.remove('role', { path: '/' });
 
-  // Clear Redux or local state
-  dispatch(setJwt(null));
-  dispatch(setUser(null));
+  // Optional: remove with other paths if used
+  Cookies.remove('token');
+  Cookies.remove('userData');
+  Cookies.remove('role');
 
-  // Optional: redirect to login
-  navigate('/login');
+  // Clear Redux
+  dispatch(removeJwt());
+  dispatch(removeUser());
+
+  navigate('/');
     
   }
   // const handleProfile = () =>{
