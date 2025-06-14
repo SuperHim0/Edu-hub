@@ -7,7 +7,7 @@ import FooterSite from "../components/Home/FooterSite"
 
 const CoursePage = () => {
   return (
-     <div className='relative bg-[var(--color-dark)] min-h-screen overflow-hidden'>
+     <div className=' bg-[var(--color-dark)] min-h-screen overflow-hidden'>
         <Header/>
         <Spotlight/>
         <Tranding />

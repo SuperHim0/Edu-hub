@@ -1,23 +1,25 @@
 // import { BackgroundImage } from '@mantine/core'
-import { IconChevronCompactLeft, IconChevronCompactRight } from '@tabler/icons-react'
- import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { Carousel } from '@mantine/carousel';
+import { BackgroundImage } from '@mantine/core';
+import { useRef } from 'react';
+import Autoplay from 'embla-carousel-autoplay';
+// import type Autoplay from 'embla-carousel-autoplay';
 
 const Spotlight = () => {
-  const [direction,setDirection] = useState(0);
+  const autoplay = useRef(Autoplay({ delay: 5000 }));
     const spotlightDetails = [
         {id:1, 
-            title: "course",
-            description:"this is a course",
+            title: "One Piece",
+            description:"Gold Roger was known as the the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout the world. His last words before his death revealed the existence of the greatest treasure in the world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who dreamed of finding One Piece—which promises an unlimited amount of riches and fame—and quite possibly the pinnacle of glory and the title of the Pirate King. Enter Monkey Luffy, a 17-year-old boy who defies your standard definition of a pirate. Rather than the popular persona of a wicked, hardened, toothless pirate ransacking villages for fun, Luffy's reason for being a pirate is one of pure wonder: the thought of an exciting adventure that leads him to intriguing people and ultimately, the promised treasure. Following in the footsteps of his childhood hero, Luffy and his crew travel across the Grand Line, experiencing crazy adventures, unveiling dark mysteries and battling strong enemies, all in order to reach the most coveted of all fortunes—One Piece",
             image:"https://i.pinimg.com/736x/06/35/bf/0635bf6e3bbbe6d85b0f167c3ade5614.jpg",
-            releaseDate:"",
-            totalVideo:"",
+            releaseDate:"11-may",
+            totalVideo:"5",
             purchaseLink:"https://via.placeholder.com",
-            details:""
+            details:"af"
         },
         {id:2, 
-            title: "course",
-            description:"this is a course",
+            title: "Sword of the Demon Hunter: Kijin Gentosho",
+            description:"In the Edo period, there was a shrine maiden called in the mountain village of Kadono. Jinta, a young man who acts as...",
             image:"https://i.pinimg.com/736x/1d/50/43/1d5043f74eda1308f852d0a3384e634c.jpg",
             releaseDate:"Apr 29, 2024",
             totalVideo:8,
@@ -25,144 +27,74 @@ const Spotlight = () => {
             details:""
         },
     ];
-    const [activeIndex,setActiveIndex] = useState(0);
-    useEffect(()=>{
-        setDirection(1);
-        const interval = setInterval(()=>{
-            setActiveIndex((prev)=>
-                prev === spotlightDetails.length - 1 ? 0 : prev+1
-            
-            );
-        },5000);
-        return () => clearInterval(interval);
-
-    },[spotlightDetails.length])
-     const variants = {
-        enter: (direction:any) => ({
-            x: direction > 0 ? 300 : -300,
-            opacity: 0,
-        }),
-        center: {
-            x: 0,
-            opacity: 1,
-            transition: { duration: 0.8 },
-        },
-        exit: (direction:any) => ({
-            x: direction < 0 ? 300 : -300,
-            opacity: 0,
-            transition: { duration: 0.8 },
-        }),  
-    };
 
   return (
-    // <section className='absolute top-0 left-0'>
-        // spotlightDetails.map((spotlight,index) => (
-        //     <div
-        //         className={`absolute top-0 left-0 bg-cover w-full bg-linear-to-r from-black to-transparent transition ease-in-out duration-1000 $ ${
-        //     index === activeIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-        //         style={{ backgroundImage:`linear-gradient(to right, rgba(0, 0, 0, 1) 34%, transparent), url(${spotlight.image})` }}
-        //         key={index}
-        //     >
 
-        //     {/* <BackgroundImage key={index} src={spotlight.image} className='absolute top-0 left-0 bg-linear-to-r from-black to-blue-500'> */}
-        //     <div className='mt-75 mb-10'>
-        //         <div className="ml-12 flex flex-col gap-8">
-        //             <span className='text-green-500'>#{spotlight.id} Spotlight</span>
-        //             <h1 className='text-white text-3xl'>{spotlight.title}</h1>
-        //             <div className='text-white flex flex-row gap-4'>
-        //                 <span className='text-gray-400 flex gap-2'><IconCalendarMonth /> {spotlight.releaseDate}</span>
-        //                 <span className='text-gray-400 flex gap-2'><IconPlayCard /> {spotlight.totalVideo}</span>
-                        
-        //             </div>
-        //             <p className='text-white'>{spotlight.description}</p>
-        //             <div className='flex gap-4'>
-        //                 <button className='bg-green-500 text-white px-8 py-2 rounded-4xl'>Buy Now</button>
-        //                 <button className='bg-gray-500 text-white px-8 py-2 rounded-4xl'>View Details</button>  
-        //             </div>
-        //         </div>
-        //     </div>
-        // {/* </BackgroundImage> */}
-        //     </div>
-        // ))
-
-    // </section>
   
        <section className='h-[650px]'>
 
-      <AnimatePresence custom={direction}>
-        <motion.div
-          key={activeIndex}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-          className="absolute top-0 left-0 w-full bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(to right, rgba(15, 15, 15, 1) 28%, transparent), url(${spotlightDetails[activeIndex].image})`,
-          }}
-        >
-        
-          <div className="mt-68 mb-20 ml-12 flex flex-col gap-6 ">
-            <div className='max-w-xl flex flex-col gap-6'>
-                <span className="text-green-500">#{spotlightDetails[activeIndex].id} Spotlight</span>
-                <h1 className="text-white text-4xl font-bold">{spotlightDetails[activeIndex].title}</h1>
-                <p className="text-white">{spotlightDetails[activeIndex].description}</p>
+       <Carousel
+      slideSize="100%"
+      height={600}
+      slideGap="md"
+      controlsOffset="xl"
+      controlSize={40}
+      withControls
+      withIndicators
+      emblaOptions={{
+        loop: true,
+        dragFree: true,
+        align: 'center'
+      }}
+      plugins={[autoplay.current]}
+      onMouseEnter={autoplay.current.stop}
+      onMouseLeave={() => autoplay.current.play()}
+       >
+
+        {spotlightDetails.map((spotlightDetails) =>{
+          return (
+
+            <Carousel.Slide  key={spotlightDetails.id}>
+                <BackgroundImage
+                src={spotlightDetails.image}
+                radius="sm"
+                style={{ 
+                  height: 600 ,
+                  backgroundImage: `linear-gradient(to right, rgba(15, 15, 15, 1) 14%, transparent)`,
+                }}
+                className='' 
+                
+  >
+    <div
+    className="absolute top-0 left-0 w-full h-full"
+    style={{
+      backgroundImage: `linear-gradient(to right, rgba(15, 15, 15, 1) 28%, transparent)`,
+    }}
+  />
+          <div className=" mb-20 ml-2 md:ml-12 flex flex-col gap-6 absolute bottom-0 left-0 z-10">
+            <div className='mt-68 max-w-xl flex flex-col gap-6 overflow-hidden'>
+                <span className="text-green-500">#{spotlightDetails.id} Spotlight</span>
+                <h1 className="text-white text-4xl font-bold">{spotlightDetails.title}</h1>
+                <p className="text-gray-400 text-md">{spotlightDetails.description.slice(0,201)+"..." }</p>
             </div>
             <div className='flex  gap-6 justify-between  mr-10'>
-
-            <div className="flex gap-4 flex-col sm:flex-row">
-                  <button className="bg-green-500 text-white px-8 py-2 rounded">Buy Now</button>
-                  <button className="bg-gray-500 text-white px-8 py-2 rounded">View Details</button>
-
+                  <div className="flex gap-4 flex-col sm:flex-row">
+                        <button className="bg-green-500 text-white  px-2 sm:px-3 md:px-8 py-2  text-sm  rounded">Buy Now</button>
+                        <button className="bg-gray-500 text-white   px-2 sm:px-3  md:px-8 py-2  text-sm rounded">View Details</button>
+                  </div>
             </div>
-
-                
-
-            </div>
-
-
           </div>
-          
-          <div className='w-full h-10 md:h-20  ' 
+          <div className='w-full h-10 md:h-20  absolute bottom-0 left-0' 
               style={{
                 backgroundImage: `linear-gradient(to top, rgba(15, 15, 15, 1) 14%, transparent)`,
               }}
               >
           </div>
-        </motion.div>
-        </AnimatePresence>
-        <div className="gap-4 justify-end mt-5 mr-2 hidden sm:flex">
-                      <button
-                        className="bg-black text-white hover:bg-green-500   rounded-full py-4 px-4 z-30  transition duration-300 ease-in hover:shadow-md hover:border-green-400 hover:border-2"
-                        onClick={() => {
-                          setActiveIndex((prev) =>
-                            prev === 0 ? spotlightDetails.length - 1 : prev - 1
-                    
-                        )
-                        setDirection(-1);
-                      }
-                    }
-                      >
-                        <IconChevronCompactLeft />
-                      </button>
-                      
-                      <button
-                        className="bg-black text-white rounded-full px-4 z-50 transition duration-300 ease-in hover:shadow-md hover:border-green-400 hover:border-2 hover:bg-green-500"
-                        onClick={() => {
-                          setActiveIndex((prev) =>
-                            prev === spotlightDetails.length - 1 ? 0 : prev + 1
-                      
-                        )
-                        setDirection(1);
-                    }
-                    }
-                      >
-                        <IconChevronCompactRight />
-                      </button>
-                </div>
-        
-
+                </BackgroundImage>
+          </Carousel.Slide>
+              )
+            })}   
+           </Carousel>
             </section>
     )
 }

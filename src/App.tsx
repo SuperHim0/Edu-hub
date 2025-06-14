@@ -1,4 +1,5 @@
 import '@mantine/core/styles.css';
+import '@mantine/carousel/styles.css';
 import { createTheme, MantineProvider } from '@mantine/core';
 import AppRoutes from './Routes/AppRoutes'
 import { Notifications } from '@mantine/notifications';

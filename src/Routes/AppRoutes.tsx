@@ -1,6 +1,5 @@
 
 import {BrowserRouter,Navigate,Route,Routes} from 'react-router-dom';
-import Home from '../page/Home';
 import SignUp from '../components/Login/SignUp';
 import Login from '../components/Login/Login';
 import CoursePage from '../page/CoursePage';
@@ -20,6 +19,8 @@ import Courses from '../components/Student/Courses';
 import {MyCourses} from '../components/Study/MyCourses';
 import OrderSummary from '../components/Student/OrderSummary';
 import VideoPlayer from '../components/Study/VideoPlayer';
+import Home from '../page/Home';
+
 
 
 const AppRoutes = () => {

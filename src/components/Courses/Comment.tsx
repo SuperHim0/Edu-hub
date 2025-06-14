@@ -38,21 +38,21 @@ export const Comment = () => {
     ]
 
   return (
-    <section className='text-white w-full h-[400px] bg-[var(--color-comment)]'
+    <section className='text-white w-full  bg-[var(--color-comment)]'
     >
-        <div className=" flex flex-col items-start">
-            <h1 className="text-2xl font-bold">Top Comments</h1>
+        <div className=" flex flex-col items-center md:items-start">
+            <h1 className="text-2xl font-bold mt-4 uppercase md:mt-0">Top Comments</h1>
             <div className="mt-7 flex flex-row items-start">
                 {/* //image */}
                 <div className="overflow-hidden hidden 2xl:block">
                     <img src={commentPng} width={340}  className="object-cover  rounded-lg"/>
                 </div>
                 {/* //commnet  */}
-                <div className="flex flex-row gap-4 mt-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 m-5  md:mt-8">
                     {latestComment.map((comment, index) => (
                             <div
                               key={index}
-                              className="shadow-xl mt-10 flex flex-row md:flex-col gap-4 rounded-lg p-4 bg-white/5 backdrop-blur-md text-white w-[250px]"
+                              className="shadow-xl  mt-4  md:mt-10  flex md:w-[240px] flex-col gap-4 rounded-lg p-4 bg-white/5 backdrop-blur-md text-white"
                             >
                               {/* Avatar */}
                               <div className="flex justify-center md:justify-start items-center gap-4">
