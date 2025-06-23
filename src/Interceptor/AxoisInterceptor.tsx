@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // Create an axios instance with a custom configuration
 const axoisIntstance = axios.create({
-    baseURL: 'https://videowatcher-dockerapp-latest.onrender.com',
+    baseURL: 'https://edu-hub-backend-8mnj.onrender.com',
     // baseURL: 'http://localhost:8082',
 
 });
