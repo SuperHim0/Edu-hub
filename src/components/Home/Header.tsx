@@ -1,6 +1,6 @@
 import { Burger, Button, Divider } from "@mantine/core"
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import logo1 from "../../assets/image.png";
 
 
@@ -53,9 +53,9 @@ const Header = () => {
             <div className="flex items-center gap-2">
                 <div className="hidden md:flex">
 
-                <Button  className='ml-4 ' color="green"><a href="/login" >Login</a></Button>
+                <Button  className='ml-4 ' color="green"><NavLink to="/login" >Login</NavLink></Button>
                 </div>
-                <Button color="black" ><a href='/signup'>Sign Up</a></Button>
+                <Button color="black" ><NavLink to='/signup'>Sign Up</NavLink></Button>
                 
             </div>
         </div>

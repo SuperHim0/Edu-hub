@@ -32,10 +32,10 @@ export const MyCourses = () => {
     }
     const user = useSelector((state : any)=> state.user);
     
+    
 
     const fetchAllPurchasedCourses = () => {
         getStudentPurchaseCourses(user.userId).then((data) =>{
-            console.log(data);
             setmycourses(data);
         })
     }

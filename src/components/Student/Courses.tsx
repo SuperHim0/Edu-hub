@@ -35,7 +35,7 @@ const Courses = () => {
     const fetchCourses = () =>{
         CoursesService()
         .then((_data)=>{
-            console.log(_data);
+            // console.log(_data);
             setCourseDetails(_data);
         }).catch((err) =>{
             console.log("error fetching courses: ",err);

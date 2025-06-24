@@ -4,7 +4,7 @@ const CoursesService = async () => {
     return axoisIntstance.get('/home/courses', )
     .then((response:any) => 
         {
-            console.log("response : "+response);
+            // console.log("response : "+response);
             return response.data
         })
     .catch((error:any) => {throw error})

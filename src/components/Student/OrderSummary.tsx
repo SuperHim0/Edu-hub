@@ -7,7 +7,7 @@ const OrderSummary = () => {
   const location = useLocation();
   const course = location.state?.course;  
 
-  console.log(course);
+  // console.log(course);
   
         const token = useSelector((state : any) => state.jwt);
         const user = useSelector((state : any) => state.user);

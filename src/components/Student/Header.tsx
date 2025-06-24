@@ -5,10 +5,16 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removeJwt } from "../../Slice/JwtSlice";
 import { removeUser } from "../../Slice/UserSlice";
+import useUserData from "../../Slice/GetUserSlice";
+
+
+
 
 
 const Header = () => {
   const dispatch = useDispatch();
+  
+   const user = useUserData();
 
   const navigate = useNavigate();
   const handleLogout = () =>{
@@ -44,7 +50,7 @@ const Header = () => {
             
             <div className="flex items-center justify-between gap-4">
 
-            <span className="text-[var(--color-Dark)] text-lg font-semibold" >Hi, Himanshu</span>
+            <span className="text-[var(--color-Dark)] text-lg font-semibold" >Hi, {user?.name}</span>
             <Menu shadow="md" width={200}>
               <Menu.Target>
                 <Avatar></Avatar>

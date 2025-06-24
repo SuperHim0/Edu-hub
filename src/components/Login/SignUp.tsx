@@ -1,8 +1,10 @@
 import { Button, Divider, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from '@mantine/form';
 import { registerUser } from "../../Services/UserServices";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { errorNotification, successNotification } from "../../utility/NotificationUtil";
+import logo from "../../assets/eduhub.png";
+
 // import {GoogleButton} from 'https://img.icons8.com/clouds/100/google-logo.png';
 // import {TwitterButton} from 'https://img.icons8.com/clouds/100/github.png';
 
@@ -57,9 +59,11 @@ const SignUp = () => {
     <div className='flex flex-col w-full h-screen justify-center items-center bg-[var(--color-dark)]'>
         <div className='flex flex-col px-10 w-8/10 sm:w-6/10 md:6/10 lg:w-4/12 xl:w-3/12 h-auto bg-[var(--color-DarkBlack)] rounded-lg p-6 shadow-md '>
             <div className='m-1 w-full flex flex-col items-center justify-center gap-2'>
-                <h1>logo</h1>
+                {/* <h1>logo</h1> */}
+                <img src={logo} alt="logo" width={74} />
+                
                 <h2 className='text-white text-2xl font-bold text-center'>Welcome To SignUp</h2> 
-                <p className='text-gray-400 text-sm text-center'>Allready have an account?<a href='/login'>Login</a></p>
+                <p className='text-gray-400 text-sm text-center'>Allready have an account?<NavLink to={"/login"}>Login</NavLink></p>
                 <form onSubmit={form.onSubmit(handleSubmit)} className="w-full">
                   <TextInput
                     

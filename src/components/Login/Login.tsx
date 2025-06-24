@@ -6,6 +6,8 @@ import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { setJwt } from "../../Slice/JwtSlice";
 import { setUser } from "../../Slice/UserSlice";
+import logo from "../../assets/eduhub.png";
+import { NavLink } from "react-router-dom";
 // import {GoogleButton} from 'https://img.icons8.com/clouds/100/google-logo.png';
 // import {TwitterButton} from 'https://img.icons8.com/clouds/100/github.png';
 
@@ -38,8 +40,10 @@ const Login = () => {
       
       dispatch(setJwt(token));        // ✅ stores token string in localStorage
       dispatch(setUser(_data)); 
+      console.log(_data);
+      
        Cookies.set('token',_data.jwtToken,{expires:1 , path:'/'})
-       Cookies.set('userData',_data,{expires:1,path:'/'})
+       Cookies.set('userData',JSON.stringify(_data),{expires:1,path:'/'})
        Cookies.set('role',_data.role,{expires:1,path:'/'})
        console.log(Cookies.get('userData'));
        
@@ -60,9 +64,10 @@ const Login = () => {
     <div className='flex flex-col w-full h-screen justify-center items-center bg-[var(--color-dark)]'>
         <div className='flex flex-col px-10 w-8/10 sm:w-6/10 md:6/10 lg:w-4/12 xl:w-3/12 h-auto bg-[var(--color-DarkBlack)] rounded-lg p-6 shadow-md '>
             <div className='m-1 w-full flex flex-col items-center justify-center gap-2'>
-                <h1>logo</h1>
+                {/* <h1>logo</h1> */}
+                <img src={logo} alt="logo" width={74} />
                 <h2 className='text-white text-2xl font-bold text-center'>Welcome Back</h2> 
-                <p className='text-gray-400 text-sm text-center'>Don't have an account? <a href='/signup'>Sign up</a></p>
+                <p className='text-gray-400 text-sm text-center'>Don't have an account? <NavLink to='/signup'>Sign up</NavLink></p>
                 <form onSubmit={form.onSubmit(handleSubmit)} className="w-full">
                   
                   <TextInput
