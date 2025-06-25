@@ -1,6 +1,5 @@
-import { Box, Button, FileInput, Group, Loader, LoadingOverlay, Select, Textarea, TextInput } from "@mantine/core"
+import { Box, Button, FileInput, Group, LoadingOverlay, Select, Textarea, TextInput } from "@mantine/core"
 import { useForm } from "@mantine/form";
-import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import { ConnectVideoToCourseService, getVideoService, uploadVideoService } from "../../Services/VideoService";
 import CoursesService from "../../Services/CoursesService";
