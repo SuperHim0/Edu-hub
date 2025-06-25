@@ -13,9 +13,7 @@ const axoisIntstance = axios.create({
 axoisIntstance.interceptors.request.use(
     
     (config : InternalAxiosRequestConfig) => {
-        // console.log('Request Interceptor:', config);
         return config;
     }
-
 )
 export default axoisIntstance;

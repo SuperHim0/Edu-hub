@@ -45,13 +45,13 @@ const Header = () => {
 
   return (
     <div className='w-full h-[72px] border border-[var(--color-divider)] bg-white fixed z-40'>
-        <div className="m-5 flex items-center gap-4 justify-between md:justify-end mr-12">
+        <div className="m-5 flex items-center gap-4 justify-between md:justify-end mr-20">
             <Burger className="md:hidden" onClick={openSideBar}  />
             
             <div className="flex items-center justify-between gap-4">
 
             <span className="text-[var(--color-Dark)] text-lg font-semibold" >Hi, {user?.name}</span>
-            <Menu shadow="md" width={200}>
+            <Menu shadow="md" width={140}>
               <Menu.Target>
                 <Avatar></Avatar>
               </Menu.Target>
