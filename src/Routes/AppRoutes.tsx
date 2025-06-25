@@ -20,6 +20,10 @@ import {MyCourses} from '../components/Study/MyCourses';
 import OrderSummary from '../components/Student/OrderSummary';
 import VideoPlayer from '../components/Study/VideoPlayer';
 import Home from '../page/Home';
+import AdminDashboard from '../page/AdminDashboard';
+import Dashboard from '../components/Admin/Dashboard';
+import Video from '../components/Admin/Video';
+import Course from '../components/Admin/Course';
 
 
 
@@ -48,6 +52,12 @@ const AppRoutes = () => {
                 <Route path='store' element={<Store/>} />
                 <Route path='phone' element={<ContactUs />} />
 
+            </Route>
+            <Route path='/admin' element={<ProtectedRoutes><AdminDashboard /></ProtectedRoutes>}>
+              <Route index element={<Navigate to="dashboard" replace />}/>
+              <Route path='dashboard' element={<Dashboard />} />
+              <Route path='video' element={<Video />} />
+              <Route path='course' element={<Course />} />
             </Route>
 
         </Routes>

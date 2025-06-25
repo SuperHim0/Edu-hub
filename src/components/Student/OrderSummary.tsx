@@ -27,7 +27,7 @@ const OrderSummary = () => {
         handler: async function (response: any) {
           alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
 
-          await fetch(`https://videowatcher-dockerapp-latest.onrender.com/subscription/subscribe?userId=${user.userId}&courseId=${course.courseId}`, {
+          await fetch(`https://edu-hub-backend-8mnj.onrender.com/subscription/subscribe?userId=${user.userId}&courseId=${course.courseId}`, {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${token}`,
